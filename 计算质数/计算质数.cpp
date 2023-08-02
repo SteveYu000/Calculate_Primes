@@ -10,7 +10,7 @@ using namespace std;
 
 void Judge_Prime() {
 		int counter = 0;  // 素数的个数
-		long int num = 0;  // 输入的整数
+		long long int num = 0;  // 输入的整数
 		cout << "输入一个整数：";
 		while (1) {
 			cin >> num;
@@ -24,7 +24,7 @@ void Judge_Prime() {
 			}
 		}
 		
-		for (long int i = 2; i < num; i++) {
+		for (long long int i = 2; i < num; i++) {
 			if (num % i == 0) {
 				counter++;  // 素数个数加1
 				break;
@@ -40,12 +40,12 @@ void Judge_Prime() {
 		system("cls");
 }
 void Calculate_Prime() {
-	long int pri_Num = 0, counter = 0;       				//pri_Num为要判断的数，从2开始；counter为pri_Num的因数个数
+	long long int pri_Num = 0, counter = 0;       				//pri_Num为要判断的数，从2开始；counter为pri_Num的因数个数
 	ifstream pri_Num_log("质数.log");
 	pri_Num_log >> pri_Num;
 	pri_Num_log.close();
 	while (1) {
-		for (long int i = 2; i < pri_Num; i++) { 		//如果为2，则直接输出，不进入循环
+		for (long long int i = 2; i < pri_Num; i++) { 		//如果为2，则直接输出，不进入循环
 			if (pri_Num % i == 0) {				//判断pri_Num是否有除本身之外大于2的因数
 				counter++;
 				continue;				//如果有则 因数个数 加1
