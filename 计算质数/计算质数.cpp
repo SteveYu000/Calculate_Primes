@@ -1,48 +1,47 @@
-/*
-	ÅĞ¶Ï Ò»¸öÊıÊÇ·ñÎªÖÊÊı
-	ÅĞ¶ÏÒ»¸öÕûÊımÊÇ·ñÊÇËØÊı£¬Ö»Ğè°Ñm±»2~m-1Ö®¼äµÄÃ¿Ò»¸öÕûÊıÈ¥³ı£¬Èç¹û¶¼²»ÄÜ±»Õû³ı£¬ÄÇÃ´m¾ÍÊÇÒ»¸öËØÊı¡£
+ï»¿/*
+	åˆ¤æ–­ ä¸€ä¸ªæ•°æ˜¯å¦ä¸ºè´¨æ•°
+	åˆ¤æ–­ä¸€ä¸ªæ•´æ•°mæ˜¯å¦æ˜¯ç´ æ•°ï¼Œåªéœ€æŠŠmè¢«2~m-1ä¹‹é—´çš„æ¯ä¸€ä¸ªæ•´æ•°å»é™¤ï¼Œå¦‚æœéƒ½ä¸èƒ½è¢«æ•´é™¤ï¼Œé‚£ä¹ˆmå°±æ˜¯ä¸€ä¸ªç´ æ•°ã€‚
 */
 #include <iostream>
 #include <fstream>
-#include <windows.h>
 #include <limits>
 #include <string>
 using namespace std;
 
 void Judge_Prime(long long int num) {
-		bool counter = 0;  // ËØÊıÅĞ¶Ï
+		bool counter = 0;  // ç´ æ•°åˆ¤æ–­
 		for (long long int i = 2; i < num; i++) {
 			if (num % i == 0) {
-				counter=!counter;  // ²»ÊÇËØÊı
+				counter=!counter;  // ä¸æ˜¯ç´ æ•°
 				break;
 			}
 		}
 
 		if (counter == 0) {
-			cout << "ÊÇÖÊÊı" << endl;
+			cout << "æ˜¯è´¨æ•°" << endl;
 		}
 		else {
-			cout << "²»ÊÇÖÊÊı" << endl;
+			cout << "ä¸æ˜¯è´¨æ•°" << endl;
 		}
 }
 void Calculate_Prime() {
 	long long int pri_Num = 0;
-	bool counter = 0;       				//pri_NumÎªÒªÅĞ¶ÏµÄÊı£¬´Ó2¿ªÊ¼£»counterÎªpri_NumµÄÒòÊı¸öÊı
+	bool counter = 0;       				//pri_Numä¸ºè¦åˆ¤æ–­çš„æ•°ï¼Œä»2å¼€å§‹ï¼›counterä¸ºpri_Numçš„å› æ•°ä¸ªæ•°
 	fstream pri_Num_log;
-	pri_Num_log.open("ÖÊÊı.log", ios::in);
+	pri_Num_log.open("è´¨æ•°.log", ios::in);
 	pri_Num_log >> pri_Num;
 	pri_Num_log.close();
 	while (1) {
-		for (long long int i = 2; i < pri_Num; i++) { 		//Èç¹ûÎª2£¬ÔòÖ±½ÓÊä³ö£¬²»½øÈëÑ­»·
-			if (pri_Num % i == 0) {				//ÅĞ¶Ïpri_NumÊÇ·ñÓĞ³ı±¾ÉíÖ®Íâ´óÓÚ2µÄÒòÊı
+		for (long long int i = 2; i < pri_Num; i++) { 		//å¦‚æœä¸º2ï¼Œåˆ™ç›´æ¥è¾“å‡ºï¼Œä¸è¿›å…¥å¾ªç¯
+			if (pri_Num % i == 0) {				//åˆ¤æ–­pri_Numæ˜¯å¦æœ‰é™¤æœ¬èº«ä¹‹å¤–å¤§äº2çš„å› æ•°
 				counter=!counter;
-				break;				//Èç¹ûÓĞÔò ÒòÊı¸öÊı²»Îª0
+				break;				//å¦‚æœæœ‰åˆ™ å› æ•°ä¸ªæ•°ä¸ä¸º0
 			}
 		}
 		if (counter == 0 && pri_Num != 0 && pri_Num != 1) {
-			cout << pri_Num << endl;		//µ±counterÎª0Ê±£¬pri_NumÎªÖÊÊı
+			cout << pri_Num << endl;		//å½“counterä¸º0æ—¶ï¼Œpri_Numä¸ºè´¨æ•°
 			fstream pri_Num_log;
-			pri_Num_log.open(".//ÖÊÊı.log", ios::out);
+			pri_Num_log.open(".//è´¨æ•°.log", ios::out);
 			pri_Num_log << pri_Num << endl;
 			pri_Num_log.close();
 		}
@@ -52,7 +51,7 @@ void Calculate_Prime() {
 }
 int main(int argc,char *argv[]) {
 		if (argc == 1) {
-			cout << "ÇëÊäÈë²ÎÊı\n²ÎÊı¸ñÊ½£º¹¦ÄÜ\t[ÊıÖµ]\npri\tÊıÖµ\tÅĞ¶ÏÊäÈëµÄÊıÊÇ·ñÎªÖÊÊı\ncal\t´ÓÁã»òÖ®Ç°µÄ´æµµ¿ªÊ¼¼ÆËãÖ®ºóµÄÖÊÊı\nexit\tÍË³ö³ÌĞò" << endl;
+			cout << "è¯·è¾“å…¥å‚æ•°\nå‚æ•°æ ¼å¼ï¼šåŠŸèƒ½\t[æ•°å€¼]\npri\tæ•°å€¼\tåˆ¤æ–­è¾“å…¥çš„æ•°æ˜¯å¦ä¸ºè´¨æ•°\ncal\tä»é›¶æˆ–ä¹‹å‰çš„å­˜æ¡£å¼€å§‹è®¡ç®—ä¹‹åçš„è´¨æ•°\nexit\té€€å‡ºç¨‹åº" << endl;
 		}
 		else {
 			string func = argv[1];
@@ -62,7 +61,7 @@ int main(int argc,char *argv[]) {
 					Judge_Prime(key);
 				}
 				catch(const invalid_argument &e){
-					cout << "ÎŞĞ§µÄÊıÖµ£º" << e.what() << endl;
+					cout << "æ— æ•ˆçš„æ•°å€¼ï¼š" << e.what() << endl;
 					cin.clear();
 					cin.ignore((numeric_limits<streamsize>::max)(), '\n');
 				}
@@ -71,7 +70,7 @@ int main(int argc,char *argv[]) {
 				Calculate_Prime();
 			}
 			else {
-				cout << "Î´¶¨ÒåµÄ²Ù×÷£¬ÇëÕıÈ·ÊäÈë²ÎÊı\n²ÎÊı¸ñÊ½£º¹¦ÄÜ\t[ÊıÖµ]\npri\tÊıÖµ\tÅĞ¶ÏÊäÈëµÄÊıÊÇ·ñÎªÖÊÊı\ncal\t´ÓÁã»òÖ®Ç°µÄ´æµµ¿ªÊ¼¼ÆËãÖ®ºóµÄÖÊÊı\nexit\tÍË³ö³ÌĞò" << endl;
+				cout << "æœªå®šä¹‰çš„æ“ä½œï¼Œè¯·æ­£ç¡®è¾“å…¥å‚æ•°\nå‚æ•°æ ¼å¼ï¼šåŠŸèƒ½\t[æ•°å€¼]\npri\tæ•°å€¼\tåˆ¤æ–­è¾“å…¥çš„æ•°æ˜¯å¦ä¸ºè´¨æ•°\ncal\tä»é›¶æˆ–ä¹‹å‰çš„å­˜æ¡£å¼€å§‹è®¡ç®—ä¹‹åçš„è´¨æ•°\nexit\té€€å‡ºç¨‹åº" << endl;
 			}
 		}
 	return 0;
